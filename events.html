@@ -56,7 +56,11 @@
                 line-height: 1.2;
                 width: 120px;
             }
-            
+            #calendar th {
+		text-align: left;
+		border: 1px solid #c0c000;
+		white-space: nowrap;
+	    }
         </style>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -81,10 +85,39 @@
                     window.location.href = "links.html";
                 }
             });
-            
+            const date = new Date();
+   	const year = date.getFullYear();
+   	const startOfYear = new Date(year, 0, 1);
+   	const diffInMilliseconds = date - startOfYear;
+   	const julianDayOfYear = Math.floor(diffInMilliseconds / (24 * 60 * 60 * 1000)) + 1;
+	function JulianDayEncode(jday) {
+	  const hi = Math.floor(jday / 50);
+	  const lo = jday % 50;
+	  const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	  return hi.toString() + letters.charAt(lo);
+	}
+	const jday = JulianDayEncode(julianDayOfYear);
+        function showing(dayrange) {
+	    const originalString = dayrange;
+	    const searchString = jday;
+            const startIdx = originalString.indexOf(searchString);
+            const desiredLength = 32 * 2;
+	    const jrange = originalString.substring(startIdx, startIdx + desiredLength);
+            var table = document.getElementById("calendar");
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                var rowId = row.getAttribute("id");
+                if (jrange.includes(rowId)) {
+                        row.style.display = "";
+                } else {
+                        row.style.display = "none";
+                }
+            }
+        }
         </script>
     </head>
-    
+    <body onload=showing("3d3e3f3g3h3i3j3k3l3m3n3o3p3q3r3s3t3u3v3w3x3y3z3A3B3C3D3E3F3G3H3I3J3K3L3M3N3O3P3Q3R3S3T3U3V3W3X4a4b4c4d4e4f4g4h4i4j4k4l4m4n4o4p4q")>
         <div class="container">
             <img class="image" src="jpg/title.jpg" alt="Image">
             <div class="buttons">
@@ -95,13 +128,586 @@
                 <button class="button" id="Button5">Links</button>
             </div>
             <div class="textbox" readonly>
-                <h2><span style="color: #3366ff;"><b>Events Calendar</b></span></h2>
-<br>
-<div style="display: flex; align-items: center; justify-content: center;">
-<div style="max-width:30%;">
-<img src="jpg/UnderConstruction.jpg" alt="Under Construction">
-</div>
-</div>
+                <h2 style="color: #3366ff;" align=center>TAWA SCD CALENDAR 2024</h2>
+<div align="center"><table id="calendar">
+<tbody>
+<tr id="3d" bgcolor=#c0ffff>
+<th>Sat, 01 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3e" bgcolor=#c0ffff>
+<th>Sun, 02 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3f">
+<th>Mon, 03 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3g">
+<th>Tue, 04 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3h">
+<th>Wed, 05 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3i">
+<th>Thu, 06 Jun</th>
+<th>7:30 PM</th>
+<th>Tawa Club Night</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Tawa Bowling Club.jpg">Tawa Bowling Club</a></th>
+</tr>
+<tr id="3j">
+<th>Fri, 07 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3k" bgcolor=#c0ffff>
+<th>Sat, 08 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3l" bgcolor=#c0ffff>
+<th>Sun, 09 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3m">
+<th>Mon, 10 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3n">
+<th>Tue, 11 Jun</th>
+<th>12:45 PM</th>
+<th>Advanced Group</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/St Johns Anglican Church.jpg">St Johns Anglican Church</a></th>
+</tr>
+<tr id="3o">
+<th>Wed, 12 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3p">
+<th>Thu, 13 Jun</th>
+<th>7:30 PM</th>
+<th>Tawa Club Night</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Tawa Bowling Club.jpg">Tawa Bowling Club</a></th>
+</tr>
+<tr id="3q">
+<th>Fri, 14 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3r" bgcolor=#c0ffff>
+<th>Sat, 15 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3s" bgcolor=#c0ffff>
+<th>Sun, 16 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3t">
+<th>Mon, 17 Jun</th>
+<th>7:30 PM</th>
+<th>Jville Tartan Night</th>
+<th><a href="news/Tawa SCD Club News - 30 May 2024/2024-06-17_Jvill Tartan Night.pdf">Flyer</a></th>
+<th><a href="news/Tawa SCD Club News - 30 May 2024/2024-06-17_Jvill Tartan Night.pdf">Dances</a></th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Khandallah Town Hall.jpg">Khandallah Town Hall</a></th>
+</tr>
+<tr id="3u">
+<th>Tue, 18 Jun</th>
+<th>12:45 PM</th>
+<th>General Group</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/St Johns Anglican Church.jpg">St Johns Anglican Church</a></th>
+</tr>
+<tr id="3v">
+<th>Wed, 19 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3w">
+<th>Thu, 20 Jun</th>
+<th>7:30 PM</th>
+<th>Tawa Club Night</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Tawa Bowling Club.jpg">Tawa Bowling Club</a></th>
+</tr>
+<tr id="3x">
+<th>Fri, 21 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3y" bgcolor=#c0ffff>
+<th>Sat, 22 Jun</th>
+<th>7:30 PM</th>
+<th>Tawa Annual Dance</th>
+<th><a href="news/Tawa SCD Club News - 30 May 2024/2024-06-22_Tawa Annual Dance.pdf">Flyer</a></th>
+<th><a href="news/Tawa SCD Club News - 30 May 2024/2024-06-22_Tawa Annual Dance.pdf">Dances</a></th>
+<th><a href="news/Tawa SCD Club News - 30 May 2024/2024 06-22 Tawa Annual Dance.pdf">Crib</a></th>
+<th><a href="jpg/Ngaio Town Hall.jpg">Ngaio Town Hall</a></th>
+</tr>
+<tr id="3z" bgcolor=#c0ffff>
+<th>Sun, 23 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3A">
+<th>Mon, 24 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3B">
+<th>Tue, 25 Jun</th>
+<th>12:45 PM</th>
+<th>Advanced Group</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/St Johns Anglican Church.jpg">St Johns Anglican Church</a></th>
+</tr>
+<tr id="3C">
+<th>Wed, 26 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3D">
+<th>Thu, 27 Jun</th>
+<th>6:30 PM</th>
+<th>Ngaio Dinner Dance</th>
+<th><a href="news/Tawa SCD Club News - 30 May 2024/2024-06-27_Ngaio Midwinter Dinner.pdf">Flyer</a></th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Presbyterian Church Hall.jpg">Presbyterian Church Hall</a></th>
+</tr>
+<tr id="3E">
+<th>Fri, 28 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3F" bgcolor=#c0ffff>
+<th>Sat, 29 Jun</th>
+<th>1:30 PM</th>
+<th>Tea Dance</th>
+<th><a href="news/Tawa SCD Club News - 30 May 2024/Tea Dance Poster 2024.pdf">Flyer</a></th>
+<th><a href="news/Tawa SCD Club News - 30 May 2024/Tea Dance Poster 2024.pdf">Dances</a></th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Uniting Church Hall.jpg">Uniting Church Hall</a></th>
+</tr>
+<tr id="3G" bgcolor=#c0ffff>
+<th>Sun, 30 Jun</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3H">
+<th>Mon, 01 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3I">
+<th>Tue, 02 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3J">
+<th>Wed, 03 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3K">
+<th>Thu, 04 Jul</th>
+<th>7:30 PM</th>
+<th>Tawa Club Night</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Tawa Bowling Club.jpg">Tawa Bowling Club</a></th>
+</tr>
+<tr id="3L">
+<th>Fri, 05 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3M" bgcolor=#c0ffff>
+<th>Sat, 06 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3N" bgcolor=#c0ffff>
+<th>Sun, 07 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3O">
+<th>Mon, 08 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3P">
+<th>Tue, 09 Jul</th>
+<th>12:45 PM</th>
+<th>Advanced Group</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/St Johns Anglican Church.jpg">St Johns Anglican Church</a></th>
+</tr>
+<tr id="3Q">
+<th>Wed, 10 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3R">
+<th>Thu, 11 Jul</th>
+<th>7:30 PM</th>
+<th>Tawa Club Night</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Tawa Bowling Club.jpg">Tawa Bowling Club</a></th>
+</tr>
+<tr id="3S">
+<th>Fri, 12 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3T" bgcolor=#c0ffff>
+<th>Sat, 13 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3U" bgcolor=#c0ffff>
+<th>Sun, 14 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3V">
+<th>Mon, 15 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="3W">
+<th>Tue, 16 Jul</th>
+<th>12:45 PM</th>
+<th>General Group</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/St Johns Anglican Church.jpg">St Johns Anglican Church</a></th>
+</tr>
+<tr id="3X">
+<th>Wed, 17 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4a">
+<th>Thu, 18 Jul</th>
+<th>7:30 PM</th>
+<th>Tawa Club Night</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Tawa Bowling Club.jpg">Tawa Bowling Club</a></th>
+</tr>
+<tr id="4b">
+<th>Fri, 19 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4c" bgcolor=#c0ffff>
+<th>Sat, 20 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4d" bgcolor=#c0ffff>
+<th>Sun, 21 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4e">
+<th>Mon, 22 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4f">
+<th>Tue, 23 Jul</th>
+<th>12:45 PM</th>
+<th>Advanced Group</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/St Johns Anglican Church.jpg">St Johns Anglican Church</a></th>
+</tr>
+<tr id="4g">
+<th>Wed, 24 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4h">
+<th>Thu, 25 Jul</th>
+<th>7:30 PM</th>
+<th>Tawa Club Night</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Tawa Bowling Club.jpg">Tawa Bowling Club</a></th>
+</tr>
+<tr id="4i">
+<th>Fri, 26 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4j" bgcolor=#c0ffff>
+<th>Sat, 27 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4k" bgcolor=#c0ffff>
+<th>Sun, 28 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4l">
+<th>Mon, 29 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4m">
+<th>Tue, 30 Jul</th>
+<th>12:45 PM</th>
+<th>General Group</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/St Johns Anglican Church.jpg">St Johns Anglican Church</a></th>
+</tr>
+<tr id="4n">
+<th>Wed, 31 Jul</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4o">
+<th>Thu, 01 Aug</th>
+<th>7:30 PM</th>
+<th>Tawa Club Night</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th><a href="jpg/Tawa Bowling Club.jpg">Tawa Bowling Club</a></th>
+</tr>
+<tr id="4p">
+<th>Fri, 02 Aug</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+<tr id="4q" bgcolor=#c0ffff>
+<th>Sat, 03 Aug</th>
+<th style="color: lightgray;">time</th>
+<th style="color: lightgray;">event</th>
+<th style="color: lightgray;">flyer</th>
+<th style="color: lightgray;">dances</th>
+<th style="color: lightgray;">crib</th>
+<th style="color: lightgray;">location</th>
+</tr>
+</tbody></table></div>
             </div>
         </div>
     </body>
