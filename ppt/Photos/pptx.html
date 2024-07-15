@@ -51,36 +51,22 @@
         // Advance to the next image
         currentImageIndex = (currentImageIndex % totalNumberOfImages) + 1;
         if (currentImageIndex === 1) {
-            history.back();
+            window.open('','_self').close()
         }
         updateImage();
       } else if (event.key === 'ArrowLeft') {
         // Go back to the previous image
         currentImageIndex = (currentImageIndex - 2 + totalNumberOfImages) % totalNumberOfImages + 1;
         if (currentImageIndex === totalNumberOfImages) {
-            history.back();
+            window.open('','_self').close()
         }
         updateImage();
       } else if (event.key === 'Escape') {
         event.preventDefault();
         // Go back to the previous page
-        history.back();
+        window.open('','_self').close()
       }
     });
-
-    // Event listener for mobile down-swipe
-    let touchstartY = 0
-    let touchendY = 0
-    function checkDirection() {
-      if (touchendY > touchstartY) history.back();
-    }
-    document.addEventListener('touchstart', e => {
-      touchstartY = e.changedTouches[0].screenY
-    })
-    document.addEventListener('touchend', e => {
-      touchendY = e.changedTouches[0].screenY
-      checkDirection()
-    })
 
     document.addEventListener('click', function(event) {
       const screenWidth = window.innerWidth;
@@ -88,13 +74,13 @@
       if (clickX < screenWidth / 2) {
         currentImageIndex = (currentImageIndex - 2 + totalNumberOfImages) % totalNumberOfImages + 1;
         if (currentImageIndex === totalNumberOfImages) {
-            history.back();
+            window.open('','_self').close()
         }
         updateImage();
       } else {
         currentImageIndex = (currentImageIndex % totalNumberOfImages) + 1;
         if (currentImageIndex === 1) {
-            history.back();
+            window.open('','_self').close()
         }
         updateImage();
       }
