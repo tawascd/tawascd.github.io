@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Div Visibility</title>
+    <style>
+        h2 {
+            text-align: center;
+            color: #3366ff;
+        }
+        h3 {
+            cursor: pointer;
+            text-decoration: underline;
+            color: blue;
+        }
+        h3.selected {
+            color: purple;
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+        th, td {
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 10px;
+            padding-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Introduction to Tawa SCD</h2>
+    <div id="content">
+        <h3 class="title" onclick="toggleDiv('div1', this)">Welcome</h3>
+        <div id="div1" class="hidden">
+            <p>Scottish Country Dancing is not only great fun; it is also good exercise. With lively music it promotes pleasant social interaction and aerobic activity, both important parts of good mental and physical health.</p>
+
+            <p>We would be very pleased if you choose to join us so that you can have many happy years of dancing ahead. We meet in the Tawa Bowling Club for a 7.30pm start although doors open at 7.00pm. No partner, special clothes or shoes are needed although we recommend shoes with soft soles.</p>
+
+            <p>It is suitable for people of all ages, teenage to retired. If you are new to dancing, look out for notification of Beginners Classes.</p>
+
+        </div>
+
+        <h3 class="title" onclick="toggleDiv('div2', this)">Club and Regional Dances</h3>
+        <div id="div2" class="hidden">
+            <p>Arriving by 7.20pm is recommended. The night normally starts with a simple walking warm-up dance. The warm-up dance is followed by stretching exercises for various parts of the body. Most dances on a club night are taught so will be walked through beforehand. The night ends with some warm down music. Periodically we have Tartan and Theme nights. There is a yearly Tawa Annual Dance.</p>
+
+            <p>The Wellington Region usually offer classes each year at three different levels. These are mid-year Basics, Intermediate and Advanced classes. A new year is often welcomed with a Hogmanay Dance.</p>
+
+        </div>
+
+        <h3 class="title" onclick="toggleDiv('div3', this)">Constitution & Committee</h3>
+        <div id="div3" class="hidden">
+            <p>The club is a charitable organisation.</p>
+
+            <p></p><table>
+<tr><th> Position </th><th> Member </th><th> Phone </th></tr>
+<tr><td> President </td><td> Brenda Vale </td><td> 021 963 263 </td></tr>
+<tr><td> Secretary </td><td> Désirée Patterson </td><td> 021 118 4202 </td></tr>
+<tr><td> Treasurer </td><td> Hilary Ferral </td><td> 027 232 6180 </td></tr>
+<tr><td> Members </td><td> Jo Lockhart </td><td> 027 236 4187 </td></tr>
+<tr><td> </td><td> Caroline Sherborne </td><td> 027 232 8109 </td></tr>
+<tr><td> </td><td> Colin Brown </td><td> 028 413 2372 </td></tr>
+</table><p></p>
+
+        </div>
+
+        <h3 class="title" onclick="toggleDiv('div4', this)">History & Tutor Biography</h3>
+        <div id="div4" class="hidden">
+            <p>Maureen Robson was the tutor of the Tawa Club for 38 years before retiring in November 2019.</p>
+
+            <p>Our current tutor, Catherine McCutcheon began Highland Dancing as a child, and picked up Scottish Country Dancing in 1982 after completing her Highland Dancing diploma. She taught Highland Dancing for 20 years, and is currently an adjudicator. Catherine gained her Teaching Certificate in Scottish Country Dancing at the beginning of 2010. She taught the Lower Hutt club for three years, and has taught regional classes at all levels.</p>
+
+        </div>
+
+    </div>
+
+    <script>
+        function toggleDiv(divId, title) {
+            const divs = document.querySelectorAll('.title + div');
+            divs.forEach(div => {
+                if (div.id === divId) {
+                    div.classList.toggle('visible');
+                    title.classList.add('selected');
+                } else {
+                    div.classList.remove('visible');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
