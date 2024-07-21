@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toggle Div Visibility</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
         h2 {
             text-align: center;
             color: #3366ff;
@@ -32,6 +41,7 @@
     </style>
 </head>
 <body>
+  <div class="container">
     <h2>Introduction to Tawa SCD</h2>
     <div id="content">
         <h3 class="title" onclick="toggleDiv('div1', this)">Welcome</h3>
@@ -76,6 +86,7 @@
 
         </div>
 
+        <h3 class="title" onclick="fnclose()">Close</h3>
     </div>
 
     <script>
@@ -90,6 +101,10 @@
                 }
             });
         }
+        function fnclose() {
+            history.back();
+        }
     </script>
+  </div>
 </body>
 </html>
