@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TawaSCD</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: white;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 3px;
+        }
+        h2 {
+            color: #3366ff;
+        }
+        h3 {
+            cursor: pointer;
+            text-decoration: underline;
+            color: blue;
+        }
+        h3.selected {
+            color: purple;
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Event Reviews</h2>
+    <div id="content">
+        <h3 class="title" onclick="toggleDiv('div1', this)">Dessert and Dance Night</h3>
+        <div id="div1" class="visible">
+            <p><p>The big event in October was the Dessert and Dance night with dances themed around such sweet treats. With six sets on the floor Tawa members turned out in force forming four of them, including many of our new dancers who acquitted themselves with great aplomb. Ngaio, our 'sister' club closed for the night and we were able to welcome many Ngaio friends to Tawa. The dances were accompanied by Wild Heather, and their special arrangement of tunes for the dance <em>Everything Stops for Tea</em>, including <em>Tea for Two</em> and <em>Tiptoe through the Tulips</em> was a real treat.</p></p>
+
+            <p><div style="display: flex; justify-content: center; gap: 20px;">     <img src="img/dessert night.jpg" alt="Dessert night" style="width:45%; height:auto;" />     <img src="img/the band.jpg" alt="The Band" style="width:45%; height:auto;" /> </div></p>
+
+        </div>
+
+        </br>
+    </div>
+    <script>
+        function toggleDiv(divId, title) {
+            const divs = document.querySelectorAll('.title + div');
+            divs.forEach(div => {
+                if (div.id === divId) {
+                    div.classList.toggle('visible');
+                    div.classList.toggle('hidden');
+                } else {
+                    div.classList.remove('visible');
+                    div.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+  </div>
+</body>
+</html>
