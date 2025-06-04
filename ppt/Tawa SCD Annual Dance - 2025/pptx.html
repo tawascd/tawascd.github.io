@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .image-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #image {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+  </style>
+  <script>
+    window.addEventListener('resize', function() {
+      var image = document.getElementById('image');
+      var container = document.getElementById('image-container');
+      image.style.width = container.offsetWidth + 'px';
+      image.style.height = container.offsetHeight + 'px';
+    });
+    let currentImageIndex = 1;
+    const totalNumberOfImages = 12;
+    function updateImage() {
+      const imgElement = document.getElementById('image');
+      imgElement.src = `${String(currentImageIndex).padStart(3, '0')}.jpg`;
+    }
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'ArrowRight') {
+        currentImageIndex = (currentImageIndex % totalNumberOfImages) + 1;
+        if (currentImageIndex === 1) {
+            window.open('','_self').close();
+        }
+        updateImage();
+      } else if (event.key === 'ArrowLeft') {
+        currentImageIndex = (currentImageIndex - 2 + totalNumberOfImages) % totalNumberOfImages + 1;
+        if (currentImageIndex === totalNumberOfImages) {
+            window.open('','_self').close();
+        }
+        updateImage();
+      } else if (event.key === 'Escape') {
+        event.preventDefault();
+        window.open('','_self').close();
+      }
+    });
+    document.addEventListener('click', function(event) {
+      const screenWidth = window.innerWidth;
+      const clickX = event.clientX;
+      if (clickX < screenWidth / 2) {
+        currentImageIndex = (currentImageIndex - 2 + totalNumberOfImages) % totalNumberOfImages + 1;
+        if (currentImageIndex === totalNumberOfImages) {
+            window.open('','_self').close();
+        }
+        updateImage();
+      } else {
+        currentImageIndex = (currentImageIndex % totalNumberOfImages) + 1;
+        if (currentImageIndex === 1) {
+            window.open('','_self').close();
+        }
+        updateImage();
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="image-container">
+    <img id="image" src="001.jpg" alt="Image">
+  </div>
+<!-- Default Statcounter code for Porirua U3A Website
+https://poriruau3a.nz -->
+<script type="text/javascript">
+var sc_project=13022925; 
+var sc_invisible=1; 
+var sc_security="4501792e"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13022925/0/4501792e/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</body>
+</html>
