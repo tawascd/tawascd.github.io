@@ -1,6 +1,6 @@
 [submodule "news/news_2024"]
-  path = news/news_2024
-  url = https://github.com/YOUR_USERNAME/tawa_news_2024.git
+	path = news/news_2024
+	url = https://github.com/tawascd/tawa_news_2024.git
 [submodule "news/news/news_2024"]
 	path = news/news/news_2024
 	url = https://github.com/tawascd/tawa_news_2024.git
