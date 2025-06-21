@@ -20,18 +20,23 @@ jobs:
       name: github-pages
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout repository (with submodules)
         uses: actions/checkout@v4
         with:
+          submodules: recursive
           fetch-depth: 0
+
+      - name: Initialize submodules
+        run: git submodule update --init --recursive
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Copy site files to _site (excluding _site itself)
+      - name: Copy site files to _site (including submodule)
         run: |
-          mkdir -p _site
+          mkdir -p _site/news
           bash -O extglob -c 'cp -r !(._site|_site|.git|.github) _site/'
+          cp -r news/news_2024 _site/news/
         shell: bash
 
       - name: Disable Jekyll
