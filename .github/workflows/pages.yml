@@ -27,8 +27,10 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Pages
-        run: git submodule update --init --recursive
         uses: actions/configure-pages@v5
+
+      - name: Initialize submodules
+        run: git submodule update --init --recursive
 
       - name: Copy site files to _site (excluding _site itself)
         run: |
