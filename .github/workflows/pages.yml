@@ -26,18 +26,23 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
       - name: Initialize submodules
         run: git submodule update --init --recursive
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Copy site files to _site (excluding _site itself)
         run: |
           mkdir -p _site/news
-          shopt -s extglob
-          cp -r !(._site|_site|.git|.github) _site/
-          cp -r news/news_2024 _site/news/
+          if [ -d "news/news_2024" ]; then
+            shopt -s extglob
+            cp -r !(._site|_site|.git|.github) _site/
+            cp -r news/news_2024 _site/news/
+          else
+            echo "Submodule folder news/news_2024 not found!"
+            exit 1
+          fi
         shell: bash
 
       - name: Disable Jekyll
