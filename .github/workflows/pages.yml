@@ -1,4 +1,4 @@
-name: Deploy GitHub Pages with Submodules
+name: Deploy GitHub Pages
 
 on:
   push:
@@ -20,28 +20,18 @@ jobs:
       name: github-pages
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository (with submodules)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 0
-
-      - name: Initialize submodules
-        run: git submodule update --init --recursive
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Copy site files to _site (excluding _site itself)
         run: |
-          mkdir -p _site/news
-          if [ -d "news/news_2024" ]; then
-            bash -O extglob -c 'cp -r !(._site|_site|.git|.github) _site/'
-            cp -r news/news_2024 _site/news/
-          else
-            echo "Submodule folder news/news_2024 not found!"
-            exit 1
-          fi
+          mkdir -p _site
+          bash -O extglob -c 'cp -r !(._site|_site|.git|.github) _site/'
         shell: bash
 
       - name: Disable Jekyll
