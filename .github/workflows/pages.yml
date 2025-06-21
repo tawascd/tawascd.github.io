@@ -29,11 +29,11 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Copy site files to _site (including submodules)
+      - name: Copy site files to _site (excluding _site itself)
         run: |
           mkdir -p _site/news
           shopt -s extglob
-          cp -r !(._site|.git|.github) _site/
+          cp -r !(._site|_site|.git|.github) _site/
           cp -r news/news_2024 _site/news/
         shell: bash
 
