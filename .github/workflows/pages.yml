@@ -37,6 +37,9 @@ jobs:
       - name: Disable Jekyll
         run: touch _site/.nojekyll
 
+      - name: List contents of _site
+        run: ls -R _site
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
